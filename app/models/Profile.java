@@ -14,14 +14,15 @@ public class Profile extends Model
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
-    public String email;
-    public String password;
+    public String firstName;
+    public String lastName;
+    public String company;
 
-    @OneToMany(mappedBy = "sender")
-    public List<ConnectionRequest> connectionRequestSent;
-    @OneToMany(mappedBy = "receiver")
-    public List<ConnectionRequest> connectionRequestsReceived;
 
-    @OneToOne
-    public Profile profile;
+
+    public Profile(String firstName, String lastName)
+    {
+        this.firstName = firstName;
+        this.lastName= lastName;
+    }
 }
